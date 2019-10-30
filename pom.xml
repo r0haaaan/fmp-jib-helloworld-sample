@@ -9,21 +9,14 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>io.fabric8.dmp.samples</groupId>
-    <artifactId>dmp-sample-parent</artifactId>
-    <version>0.31-SNAPSHOT</version>
-    <relativePath>../pom.xml</relativePath>
-  </parent>
-
-
-  <artifactId>dmp-sample-helloworld</artifactId>
-  <version>0.31-SNAPSHOT</version>
+  <artifactId>fmp-sample-helloworld</artifactId>
+  <groupId>io.fabric8</groupId>
+  <version>1.2-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <name>dmp-sample-helloworld</name>
+  <name>fmp-sample-helloworld</name>
   
   <properties>
-    <docker.build.jib>true</docker.build.jib>
+    <fabric8.build.jib>true</fabric8.build.jib>
   </properties>
 
   <dependencies>
@@ -50,7 +43,7 @@
         <artifactId>exec-maven-plugin</artifactId>
         <version>1.5.0</version>
         <configuration>
-          <mainClass>io.fabric8.dmp.sample.helloworld.App</mainClass>
+          <mainClass>io.fabric8.fmp.sample.helloworld.App</mainClass>
         </configuration>
       </plugin>
       <plugin>
@@ -60,7 +53,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>io.fabric8.dmp.sample.helloworld.App</mainClass>
+              <mainClass>io.fabric8.fmp.sample.helloworld.App</mainClass>
             </manifest>
           </archive>
         </configuration>
@@ -68,7 +61,8 @@
 
       <plugin>
         <groupId>io.fabric8</groupId>
-        <artifactId>docker-maven-plugin</artifactId>
+        <artifactId>fabric8-maven-plugin</artifactId>
+        <version>4.3.1</version>
         <configuration>
           <images>
             <image>
@@ -90,15 +84,6 @@
             </image>
           </images>
         </configuration>
-        <executions>
-          <execution>
-            <id>docker:start</id>
-            <phase>install</phase>
-            <goals>
-              <goal>run</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
   </build>

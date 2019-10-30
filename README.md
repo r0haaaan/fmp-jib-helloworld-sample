@@ -1,6 +1,9 @@
-# JIB Sample with Docker Maven Plugin
+# JIB Sample with Fabric8 Maven Plugin
 
-1. Make sure you're logged into your docker hub account.
+1. Make sure you're logged into your docker hub account. If not please do
+```
+  docker login -u username -p password
+```
 2. Modify ImageConfiguration in pom.xml and add your docker hub username there:
 ```
             <image>
@@ -21,5 +24,5 @@
               </run>
             </image>
 ```
-3. Run `mvn docker:build` to build your image, it would be automatically pushed to docker hub.
+3. Run `mvn fabric8:build` to build your image, it would be automatically pushed to docker hub.
 ![alt text](https://i.imgur.com/Erx8w5d.png)
